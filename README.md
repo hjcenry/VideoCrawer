@@ -21,4 +21,4 @@ resource_url 破解资源下载链接(需自行研究格式播放)
 爬取爱奇艺的所有视频极为缓慢
 
 ## 爬取爱奇艺单个视频
-命令：scrapy crawl iqiyi_single
+命令：scrapy crawl iqiyi_single -a videoUrl=爱奇艺视频页地址
