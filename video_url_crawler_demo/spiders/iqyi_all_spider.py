@@ -69,7 +69,6 @@ class IqiyiAllSpider(scrapy.Spider):
             item['title'] = response.css('div.info-intro h1[itemprop=name] a::attr(title)').extract_first().strip()
             item['name'] = sel.css('div.site-piclist_info a::text').extract_first().strip()
             item['video_url'] = sel.css('div.site-piclist_info a::attr(href)').extract_first()
-            print()
             item = CrackUtils.video_crack(item)
             print(item)
             yield item
