@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from urllib import request, parse
 
 
-class CrackUtils():
+class CrackUtils:
 
     @staticmethod
     def video_crack(item):
@@ -19,7 +19,10 @@ class CrackUtils():
         bf = BeautifulSoup(get_url_html, 'lxml')
         a = str(bf.find_all('script'))
         pattern = re.compile("url    : '(.+)',", re.IGNORECASE)
-        url = pattern.findall(a)[0]
+        allPattern = pattern.findall(a)
+        if len(allPattern) == 0:
+            raise Exception
+        url = allPattern[0]
         get_movie_data = {
             'up': '0',
             'url': '%s' % url,
